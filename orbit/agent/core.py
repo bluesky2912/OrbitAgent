@@ -21,12 +21,38 @@ LLM_TOOLS = [
             "parameters": {
                 "type": "object",
                 "properties": {
-                    "command": {
-                        "type": "string",
-                        "description": "The terminal command to run."
-                    }
+                    "command": {"type": "string", "description": "The terminal command to run."}
                 },
                 "required": ["command"]
+            }
+        }
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "file_read",
+            "description": "Read the contents of a file.",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "path": {"type": "string", "description": "Path to the file to read."}
+                },
+                "required": ["path"]
+            }
+        }
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "file_create",
+            "description": "Create a new file with optional content.",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "path": {"type": "string", "description": "Path where the file should be created."},
+                    "content": {"type": "string", "description": "The text content to write into the file."}
+                },
+                "required": ["path"]
             }
         }
     }
